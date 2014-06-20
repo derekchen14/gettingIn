@@ -1,5 +1,5 @@
 'use strict';
-
+/* global app:true */
 /**
  * @ngdoc overview
  * @name gettingInApp
@@ -8,26 +8,36 @@
  *
  * Main module of the application.
  */
-angular
-  .module('gettingInApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+var app = angular.module('gettingInApp', [
+  'ngAnimate',
+  'ngCookies',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ngTouch',
+  'firebase'
+]);
+
+app.constant('FIREBASE_URL',
+  'https://shining-fire-8350.firebaseio.com/');
+
+app.config(function ($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'templates/prospect.html',
+      controller: 'ProspectCtrl'
+    })
+    .when('/about', {
+      templateUrl: 'templates/about.html',
+      controller: 'AboutCtrl'
+    })
+    .when('/track', {
+      templateUrl: 'templates/track.html',
+      controller: 'TrackCtrl'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});
+
+

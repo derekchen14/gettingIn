@@ -1,0 +1,25 @@
+ <ul ng-repeat="(id, prospect) in prospects">
+  <li>NAME: {{prospect.first}} {{prospect.last}}, STAGE: {{prospect.stage}}
+  <a class="deleteProspect" ng-click="deleteProspect(id)">X</a></li>
+</ul>
+
+<form ng-submit="addProspect()">
+  <input type="text" ng-model="prospect.first" placeholder="First name" />
+  <input type="text" ng-model="prospect.last" placeholder="Last name" />
+  <select ng-model="prospect.stage"
+    ng-options="stage for stage in stages"></select>
+  <input type="submit" value="Add Prospect" />
+</form>
+
+Ps: {{prospects}} <br>
+P: {{prospect}}
+
+<div class="jumbotron">
+  <h1>Track Your Prospective Candidates</h1>
+  <p class="lead">
+    <img class="anything" src="images/getWorkDone.png" alt="Get Work Done"><br>
+    The right person, in the right place, at the right time.
+  </p>
+  <p><a class="btn btn-md btn-success" ng-href="#">Get Started!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
