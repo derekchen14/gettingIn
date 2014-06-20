@@ -27,13 +27,13 @@ app.config(function ($routeProvider) {
       templateUrl: 'templates/prospect.html',
       controller: 'ProspectCtrl'
     })
+    .when('/prospects/:prospectId', {
+      templateUrl: 'templates/detail.html',
+      controller: 'ProspectDetailCtrl'
+    })
     .when('/about', {
       templateUrl: 'templates/about.html',
       controller: 'AboutCtrl'
-    })
-    .when('/track', {
-      templateUrl: 'templates/track.html',
-      controller: 'TrackCtrl'
     })
     .otherwise({
       redirectTo: '/'

@@ -1,6 +1,7 @@
  <ul ng-repeat="(id, prospect) in prospects">
   <li>NAME: {{prospect.first}} {{prospect.last}}, STAGE: {{prospect.stage}}
-  <a class="deleteProspect" ng-click="deleteProspect(id)">X</a></li>
+  <a class="details btn btn-success btn-xs" href="#/prospects/{{id}}">Details</a>
+  <a class="btn btn-warning btn-xs" ng-click="deleteProspect(id)">Remove</a></li>
 </ul>
 
 <form ng-submit="addProspect()">
@@ -10,9 +11,6 @@
     ng-options="stage for stage in stages"></select>
   <input type="submit" value="Add Prospect" />
 </form>
-
-Ps: {{prospects}} <br>
-P: {{prospect}}
 
 <div class="jumbotron">
   <h1>Track Your Prospective Candidates</h1>
