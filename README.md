@@ -22,4 +22,4 @@ Git (version control)
 and lots more ... 
 
 *BB/Marionette in another app, not planning to learn Ember.js atm
-
+*Still in active development, using Firebase for now
