@@ -1,13 +1,13 @@
-<div class="jumbotron">
+<div class="jumbotron" ng-hide="isSignedIn()">
   <h1>Track Your Prospective Candidates</h1>
-<!--   <p class="lead">
+  <p class="lead">
     <img class="anything" src="images/getWorkDone.png" alt="Get Work Done"><br>
     The right person, in the right place, at the right time.
   </p>
- -->  <p><a class="btn btn-success" ng-href="#">Get Started!</a></p>
+  <p><a class="btn btn-success" ng-href="#/signup">Get Started!</a></p>
 </div>
 
-<div class="container prospects-page">
+<div class="container prospects-page" ng-show="isSignedIn()">
   <div class="prospect row" ng-repeat="(id, prospect) in prospects">
     <div class="col-xs-1"></div>
     <div class="col-md-9 col-xs-11">

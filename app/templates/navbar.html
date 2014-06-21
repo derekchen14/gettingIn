@@ -12,7 +12,7 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div ng-controller="NavbarCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <form class="navbar-form navbar-right" role="search" ng-submit="addProspect()">
+    <form class="navbar-form navbar-right" role="search" ng-submit="addProspect()" ng-show="isSignedIn()">
       <input type="text" class="form-control"
         ng-model="prospect.first" placeholder="First name" />
       <input type="text" class="form-control"
@@ -21,6 +21,10 @@
         ng-options="stage for stage in stages"></select>
       <button type="submit" class="btn btn-default">Add Prospect</button>
     </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-show="isSignedIn()"><a href="#" ng-click="logout()">Sign Out</a></li>
+      <li ng-hide="isSignedIn()"><a href="#/login">Sign In</a></li>
+    </ul>
   </div><!-- /.navbar-collapse -->
 
 </nav>

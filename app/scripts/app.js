@@ -31,9 +31,13 @@ app.config(function ($routeProvider) {
       templateUrl: 'templates/detail.html',
       controller: 'ProspectDetailCtrl'
     })
-    .when('/about', {
-      templateUrl: 'templates/about.html',
-      controller: 'AboutCtrl'
+    .when('/signup', {
+      templateUrl: 'templates/signup.html',
+      controller: 'AuthCtrl'
+    })
+    .when('/login', {
+      templateUrl: 'templates/signin.html',
+      controller: 'AuthCtrl'
     })
     .otherwise({
       redirectTo: '/'
