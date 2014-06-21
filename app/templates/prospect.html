@@ -1,23 +1,25 @@
- <ul ng-repeat="(id, prospect) in prospects">
-  <li>NAME: {{prospect.first}} {{prospect.last}}, STAGE: {{prospect.stage}}
-  <a class="details btn btn-success btn-xs" href="#/prospects/{{id}}">Details</a>
-  <a class="btn btn-warning btn-xs" ng-click="deleteProspect(id)">Remove</a></li>
-</ul>
-
-<form ng-submit="addProspect()">
-  <input type="text" ng-model="prospect.first" placeholder="First name" />
-  <input type="text" ng-model="prospect.last" placeholder="Last name" />
-  <select ng-model="prospect.stage"
-    ng-options="stage for stage in stages"></select>
-  <input type="submit" value="Add Prospect" />
-</form>
-
 <div class="jumbotron">
   <h1>Track Your Prospective Candidates</h1>
-  <p class="lead">
+<!--   <p class="lead">
     <img class="anything" src="images/getWorkDone.png" alt="Get Work Done"><br>
     The right person, in the right place, at the right time.
   </p>
-  <p><a class="btn btn-md btn-success" ng-href="#">Get Started!<span class="glyphicon glyphicon-ok"></span></a></p>
+ -->  <p><a class="btn btn-success" ng-href="#">Get Started!</a></p>
 </div>
 
+<div class="container prospects-page">
+  <div class="prospect row" ng-repeat="(id, prospect) in prospects">
+    <div class="col-xs-1"></div>
+    <div class="col-md-9 col-xs-11">
+      <div class="info">
+        Name: <a href="{{prospect.url}}"> {{prospect.first }} {{prospect.last}}</a>
+      </div>
+      <div class="info">Stage: {{prospect.stage | titlecase}}</div>
+      <div class="pull-right">
+  <a class="details btn btn-primary btn-xs" href="#/prospects/{{id}}">Details</a>
+  <a class="btn btn-warning btn-xs" ng-click="deleteProspect(id)">Remove</a></li>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

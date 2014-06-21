@@ -2,8 +2,6 @@
 
 app.controller('ProspectCtrl', function ($scope, $location, Prospect) {
   $scope.prospects = Prospect.all;
-  $scope.stages = ['enter','screen','contact','follow-up','review','reject','success'];
-  $scope.prospect = {first: '', last: '', stage: 'enter'};
 
   $scope.addProspect = function() {
     Prospect.create($scope.prospect).then(function (obj) {

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><h3>Getting In</h3></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div ng-controller="NavbarCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <form class="navbar-form navbar-right" role="search" ng-submit="addProspect()">
+      <input type="text" class="form-control"
+        ng-model="prospect.first" placeholder="First name" />
+      <input type="text" class="form-control"
+        ng-model="prospect.last" placeholder="Last name" />
+      <select class="form-control" ng-model="prospect.stage"
+        ng-options="stage for stage in stages"></select>
+      <button type="submit" class="btn btn-default">Add Prospect</button>
+    </form>
+  </div><!-- /.navbar-collapse -->
+
+</nav>
+
+<!-- <div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li><a ng-href="#/about">About</a></li>
+    <li><a ng-href="#">Contact</a></li>
+  </ul>
+</div> -->
