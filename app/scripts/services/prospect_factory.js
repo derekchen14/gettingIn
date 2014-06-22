@@ -14,6 +14,18 @@ app.factory('Prospect', function ($firebase, FIREBASE_URL) {
     },
     delete: function(id) {
       return prospects.$remove(id);
+    },
+    addNote: function(pid, text) {
+      var note = {};
+      note.text = text;
+      note.prospectId = pid;
+      console.log(note);
+      prospects.$child(pid).$child('notes').$add(note);
+    },
+    removeNote: function(noteId, pid) {
+      prospects.$child(pid).$child('notes').$remove(noteId).then( function(note) {
+        console.log(note);
+      });
     }
   };
   return Prospect;

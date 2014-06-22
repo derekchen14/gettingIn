@@ -1,6 +1,38 @@
-<h3><a href="{{ prospect.url }}">{{prospect.first}} {{prospect.last}}</a></h3>
+<div class="container posts-page">
 
-<p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget eleifend sem, eget auctor justo. Vivamus tincidunt feugiat risus, et iaculis urna elementum et. Interdum et malesuada fames ac ante.</p>
-<br>
-<br>
-<a href="#/prospects">View All</a>
+
+	<div class="post row">
+    <div class="col-xs-1">
+    	<div class="vote up"><span ng-hide="downVoted(post)"
+    		ng-click="upVotePost(postId, upVoted(post))">&#x25B2;</span></div>
+    	<div class="vote down"><span ng-hide="upVoted(post)"
+    		ng-click="downVotePost(postId, downVoted(post))">&#x25BC;</span></div>
+  	</div>
+		<div class="col-md-9 col-xs-11">
+			<div class="info">
+			<h3>{{prospect.first}} {{prospect.last}}</h3>
+      </div>
+      <div><span>Last Updated: {{ currentDate | date:mediumDate}}</span></div>
+			<br>
+			<p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget eleifend sem, eget auctor justo. Vivamus tincidunt feugiat risus, et iaculis urna elementum et. Interdum et malesuada fames ac ante.</p>
+		</div>
+		<div class="col-md-2"></div><br>
+	</div>
+
+	 <div ng-repeat="(noteId, note) in prospect.notes" class="row cmt">
+    <div class="col-md-12">
+      <p>{{ note.text }}
+        <a href="" class="pull-right" ng-click="removeNote(noteId)">(X)</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="cmt-form">
+    <form ng-submit="addNote()">
+      <textarea ng-model="note.text" placeholder="Add a note" class="form-control"></textarea><br />
+      <input type="submit" value="Post" class="btn btn-primary" />
+    </form>
+  </div></div><br>
+
+	<div class="viewall"><a href="#/prospects">View All</a></div>
+</div>

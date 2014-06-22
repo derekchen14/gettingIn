@@ -11,7 +11,13 @@ body {
   border-radius: 100px;
 }
 
+.info h3 {
+  color: #659D47;
+}
 
+.viewall {
+  text-align: center;
+}
 
 /* DETAILS PAGE */
 .prof-img{
