@@ -17,8 +17,8 @@ app.controller('AuthCtrl', function ($scope, $location, Auth) {
     });
   };
   $scope.signup = function () {
-    Auth.signup($scope.user).then(function (authUser) {
-      Auth.login(authUser.user);
+    Auth.signup($scope.user).then(function () {
+      Auth.login($scope.user);
       $location.path('/');
     }, function(error) {
       $scope.error = error.toString();
