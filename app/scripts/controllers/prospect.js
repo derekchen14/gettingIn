@@ -5,14 +5,12 @@ app.controller('ProspectCtrl', function ($scope, $location, Prospect) {
 
   $scope.addProspect = function() {
     Prospect.create($scope.prospect).then(function (obj) {
-      // $scope.prospect = {first: '', last: '', stage: 'enter'};
       $location.path('/prospects' + obj.name());
     });
   };
   $scope.deleteProspect = function (id) {
     Prospect.delete(id);
   };
-
 });
 
 app.controller('ProspectDetailCtrl', function ($scope, $routeParams, Prospect) {
@@ -29,4 +27,14 @@ app.controller('ProspectDetailCtrl', function ($scope, $routeParams, Prospect) {
     console.log('pID from Detail Controller: '+ $routeParams.prospectId);
     Prospect.removeNote(noteId, $routeParams.prospectId);
   };
+  $scope.raiseRank = function (pid) {
+    Prospect.raiseRank(pid);
+  };
+  $scope.lowerRank = function (pid) {
+    Prospect.lowerRank(pid);
+  };
+  $scope.ranked = function(prospect) {
+    return prospect.rank;
+  };
+
 });

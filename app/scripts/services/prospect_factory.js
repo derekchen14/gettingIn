@@ -16,17 +16,30 @@ app.factory('Prospect', function ($firebase, FIREBASE_URL) {
       return prospects.$remove(id);
     },
     addNote: function(pid, text) {
-      var note = {};
-      note.text = text;
-      note.prospectId = pid;
-      console.log(note);
+      var note = {text: text, prospectId: pid};
       prospects.$child(pid).$child('notes').$add(note);
     },
     removeNote: function(noteId, pid) {
-      prospects.$child(pid).$child('notes').$remove(noteId).then( function(note) {
-        console.log(note);
+      prospects.$child(pid).$child('notes').$remove(noteId);
+    },
+    raiseRank: function(pid) {
+      prospects.$child(pid).$child('rank').$transaction(function (rank) {
+        if (!rank) {
+          return 1;
+        } else {
+          return rank+1;
+        }
       });
-    }
+    },
+    lowerRank: function(pid) {
+      prospects.$child(pid).$child('rank').$transaction(function (rank) {
+        if (!rank) {
+          return -1;
+        } else {
+          return rank-1;
+        }
+      });
+    },
   };
   return Prospect;
 });
